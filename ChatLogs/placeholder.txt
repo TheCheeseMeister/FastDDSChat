@@ -1,0 +1,5 @@
+// Placeholder file for chat logs //
+------------------------------------
+// New chat logs will be added in this folder
+// The format of the name is as follows:
+// 	username_otheruser_MM-DD-YY_HH-MM-SS.txt
