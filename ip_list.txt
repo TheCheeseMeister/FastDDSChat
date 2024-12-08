@@ -1,0 +1,5 @@
+// Add ips below this line to configure FastDDS with - if empty, FastDDS will work locally //
+----------------------------------------------------------------------------------------------
+10.0.0.185
+255.255.255.255
+239.255.255.250
