@@ -14,4 +14,6 @@ To run this, two dependencies are needed:
 foo@bar:~$ choco install openssl
 ```
 
+May set off antivirus, in that case allow it.
+
 Source files for building this app can be found in the folder FastDDS-Chat-Source or in the original repo [here.](https://github.com/TheCheeseMeister/FastDDS-Chat)
