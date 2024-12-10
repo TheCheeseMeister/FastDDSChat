@@ -24,7 +24,7 @@
 
 #include "UserChat.hpp"
 
-constexpr uint32_t UserChat_max_cdr_typesize {528UL};
+constexpr uint32_t UserChat_max_cdr_typesize {532UL};
 constexpr uint32_t UserChat_max_key_cdr_typesize {0UL};
 
 

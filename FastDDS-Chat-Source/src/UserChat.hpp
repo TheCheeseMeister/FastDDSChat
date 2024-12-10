@@ -86,6 +86,8 @@ public:
 
                     m_message = x.m_message;
 
+                    m_picture = x.m_picture;
+
     }
 
     /*!
@@ -98,6 +100,7 @@ public:
         m_index = x.m_index;
         m_username = std::move(x.m_username);
         m_message = std::move(x.m_message);
+        m_picture = x.m_picture;
     }
 
     /*!
@@ -114,6 +117,8 @@ public:
 
                     m_message = x.m_message;
 
+                    m_picture = x.m_picture;
+
         return *this;
     }
 
@@ -128,6 +133,7 @@ public:
         m_index = x.m_index;
         m_username = std::move(x.m_username);
         m_message = std::move(x.m_message);
+        m_picture = x.m_picture;
         return *this;
     }
 
@@ -140,7 +146,8 @@ public:
     {
         return (m_index == x.m_index &&
            m_username == x.m_username &&
-           m_message == x.m_message);
+           m_message == x.m_message &&
+           m_picture == x.m_picture);
     }
 
     /*!
@@ -260,12 +267,42 @@ public:
     }
 
 
+    /*!
+     * @brief This function sets a value in member picture
+     * @param _picture New value for member picture
+     */
+    eProsima_user_DllExport void picture(
+            int32_t _picture)
+    {
+        m_picture = _picture;
+    }
+
+    /*!
+     * @brief This function returns the value of member picture
+     * @return Value of member picture
+     */
+    eProsima_user_DllExport int32_t picture() const
+    {
+        return m_picture;
+    }
+
+    /*!
+     * @brief This function returns a reference to member picture
+     * @return Reference to member picture
+     */
+    eProsima_user_DllExport int32_t& picture()
+    {
+        return m_picture;
+    }
+
+
 
 private:
 
     uint32_t m_index{0};
     std::string m_username;
     std::string m_message;
+    int32_t m_picture{0};
 
 };
 

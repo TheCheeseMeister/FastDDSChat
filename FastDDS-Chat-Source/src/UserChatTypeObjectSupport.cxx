@@ -164,6 +164,36 @@ void register_UserChat_type_identifier(
             CompleteStructMember member_message = TypeObjectUtils::build_complete_struct_member(common_message, detail_message);
             TypeObjectUtils::add_complete_struct_member(member_seq_UserChat, member_message);
         }
+        {
+            TypeIdentifierPair type_ids_picture;
+            ReturnCode_t return_code_picture {eprosima::fastdds::dds::RETCODE_OK};
+            return_code_picture =
+                eprosima::fastdds::dds::DomainParticipantFactory::get_instance()->type_object_registry().get_type_identifiers(
+                "_int32_t", type_ids_picture);
+
+            if (eprosima::fastdds::dds::RETCODE_OK != return_code_picture)
+            {
+                EPROSIMA_LOG_ERROR(XTYPES_TYPE_REPRESENTATION,
+                        "picture Structure member TypeIdentifier unknown to TypeObjectRegistry.");
+                return;
+            }
+            StructMemberFlag member_flags_picture = TypeObjectUtils::build_struct_member_flag(eprosima::fastdds::dds::xtypes::TryConstructFailAction::DISCARD,
+                    false, false, false, false);
+            MemberId member_id_picture = 0x00000003;
+            bool common_picture_ec {false};
+            CommonStructMember common_picture {TypeObjectUtils::build_common_struct_member(member_id_picture, member_flags_picture, TypeObjectUtils::retrieve_complete_type_identifier(type_ids_picture, common_picture_ec))};
+            if (!common_picture_ec)
+            {
+                EPROSIMA_LOG_ERROR(XTYPES_TYPE_REPRESENTATION, "Structure picture member TypeIdentifier inconsistent.");
+                return;
+            }
+            MemberName name_picture = "picture";
+            eprosima::fastcdr::optional<AppliedBuiltinMemberAnnotations> member_ann_builtin_picture;
+            ann_custom_UserChat.reset();
+            CompleteMemberDetail detail_picture = TypeObjectUtils::build_complete_member_detail(name_picture, member_ann_builtin_picture, ann_custom_UserChat);
+            CompleteStructMember member_picture = TypeObjectUtils::build_complete_struct_member(common_picture, detail_picture);
+            TypeObjectUtils::add_complete_struct_member(member_seq_UserChat, member_picture);
+        }
         CompleteStructType struct_type_UserChat = TypeObjectUtils::build_complete_struct_type(struct_flags_UserChat, header_UserChat, member_seq_UserChat);
         if (eprosima::fastdds::dds::RETCODE_BAD_PARAMETER ==
                 TypeObjectUtils::build_and_register_struct_type_object(struct_type_UserChat, type_name_UserChat.to_string(), type_ids_UserChat))
