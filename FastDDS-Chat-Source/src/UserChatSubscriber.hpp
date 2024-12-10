@@ -185,9 +185,10 @@ public:
         return curr_tab;
     }
 
-    void run() {
+    // Need a separate topic, topic_name address is weird
+    void run(std::string topic) {
         while (true) {
-            if (std::find(endThreadSignal.begin(), endThreadSignal.end(), topic_name) != endThreadSignal.end()) break;
+            if (std::find(endThreadSignal.begin(), endThreadSignal.end(), topic) != endThreadSignal.end()) break;
             //if (std::find(end_signal->begin(), end_signal->end(), topic_name) != end_signal->end()) break;
 
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));

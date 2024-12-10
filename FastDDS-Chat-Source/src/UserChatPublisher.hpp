@@ -109,7 +109,7 @@ public:
 
         // Parse for IPs, comment out all of this to use FastDDS Locally
         
-        std::ifstream inputFile("../../ip_list.txt");
+        std::ifstream inputFile("./ip_list.txt");
 
         if (!inputFile) {
             std::cerr << "Could not open file!" << std::endl;

@@ -58,11 +58,11 @@ public:
         this->sub_topic = sub_topic;
         user_sub = new UserChatSubscriber(sub_topic, curr_history, curr_tab);
         user_sub->init();
-        st = std::thread(&sub_thread::run, this);
+        st = std::thread(&sub_thread::run, this, sub_topic);
     }
 
-    void run() {
-        user_sub->run();
+    void run(std::string topic) {
+        user_sub->run(topic);
     }
 
     UserChatSubscriber* getSub() {
@@ -325,7 +325,7 @@ void saveChat(std::string username, std::vector<std::string> threaded_usernames,
     std::string time = timeStream.str();
 
     // Format - Username_ChattedUser_MM-DD-YY_HH-MM-SS.txt
-    std::string filename = "../../ChatLogs/" + username + "_" + saveUser + "_" + date + "_" + time + ".txt";
+    std::string filename = "./ChatLogs/" + username + "_" + saveUser + "_" + date + "_" + time + ".txt";
     
     std::ofstream chatLog(filename);
 
